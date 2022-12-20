@@ -1,4 +1,4 @@
-#include "GameManager.h"
+ï»¿#include "GameManager.h"
 #include <filesystem>
 
 void GameManager::init()
@@ -17,7 +17,7 @@ void GameManager::start_game()
 
 		while (!got_answer)
 		{
-			std::cout << "Ïğîäîëæèòü ïğåäûäóùóş èãğó? Y/N" << std::endl;
+			std::cout << "ĞŸÑ€Ğ¾Ğ´Ğ¾Ğ»Ğ¶Ğ¸Ñ‚ÑŒ Ğ¿Ñ€ĞµĞ´Ñ‹Ğ´ÑƒÑ‰ÑƒÑ Ğ¸Ğ³Ñ€Ñƒ? Y/N" << std::endl;
 			std::cin >> answer;
 
 			if (answer == 'Y' || answer == 'y')
@@ -33,7 +33,7 @@ void GameManager::start_game()
 			}
 			else
 			{
-				std::cout << "Ïğîñòèòå, ÿ íå ïîíèìàş. Ïîæàëóéñòà, ïîâòîğèòå ââîä." << std::endl;
+				std::cout << "ĞŸÑ€Ğ¾ÑÑ‚Ğ¸Ñ‚Ğµ, Ñ Ğ½Ğµ Ğ¿Ğ¾Ğ½Ğ¸Ğ¼Ğ°Ñ. ĞŸĞ¾Ğ¶Ğ°Ğ»ÑƒĞ¹ÑÑ‚Ğ°, Ğ¿Ğ¾Ğ²Ñ‚Ğ¾Ñ€Ğ¸Ñ‚Ğµ Ğ²Ğ²Ğ¾Ğ´." << std::endl;
 			}
 		}
 	}
@@ -63,34 +63,34 @@ void GameManager::end_game(string result)
 
 	if (result == "City is instinct")
 	{
-		std::cout << "Ãîğîä ïîëíîñòüş âûìåğ, è òåïåğü âàì áîëüøå íåêåì óïğàâëÿòü." << std::endl;
+		std::cout << "Ğ“Ğ¾Ñ€Ğ¾Ğ´ Ğ¿Ğ¾Ğ»Ğ½Ğ¾ÑÑ‚ÑŒÑ Ğ²Ñ‹Ğ¼ĞµÑ€, Ğ¸ Ñ‚ĞµĞ¿ĞµÑ€ÑŒ Ğ²Ğ°Ğ¼ Ğ±Ğ¾Ğ»ÑŒÑˆĞµ Ğ½ĞµĞºĞµĞ¼ ÑƒĞ¿Ñ€Ğ°Ğ²Ğ»ÑÑ‚ÑŒ." << std::endl;
 
 	}
 	else if (result == "Bad death ratio")
 	{
-		std::cout << "Çà îäèí ãîä îò ãîëîäà óìåğëî áîëåå ïîëîâèíû íàñåëåíèÿ ãîğîäà, è âàì ïğèøëîñü ñğî÷íî áåæàòü." << std::endl;
+		std::cout << "Ğ—Ğ° Ğ¾Ğ´Ğ¸Ğ½ Ğ³Ğ¾Ğ´ Ğ¾Ñ‚ Ğ³Ğ¾Ğ»Ğ¾Ğ´Ğ° ÑƒĞ¼ĞµÑ€Ğ»Ğ¾ Ğ±Ğ¾Ğ»ĞµĞµ Ğ¿Ğ¾Ğ»Ğ¾Ğ²Ğ¸Ğ½Ñ‹ Ğ½Ğ°ÑĞµĞ»ĞµĞ½Ğ¸Ñ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ°, Ğ¸ Ğ²Ğ°Ğ¼ Ğ¿Ñ€Ğ¸ÑˆĞ»Ğ¾ÑÑŒ ÑÑ€Ğ¾Ñ‡Ğ½Ğ¾ Ğ±ĞµĞ¶Ğ°Ñ‚ÑŒ." << std::endl;
 	}
 	else if (result == "Reign end")
 	{
 		
-		if (parameters.P > 33 || parameters.L < 7) // óáğàòü ìàãè÷åñêèå êîíñòàíòû
+		if (parameters.P > 33 || parameters.L < 7) // ÑƒĞ±Ñ€Ğ°Ñ‚ÑŒ Ğ¼Ğ°Ğ³Ğ¸Ñ‡ĞµÑĞºĞ¸Ğµ ĞºĞ¾Ğ½ÑÑ‚Ğ°Ğ½Ñ‚Ñ‹
 		{
-			std::cout << "Èç-çà âàøåé íåêîìïåòåíòíîñòè â óïğàâëåíèè, íàğîä óñòğîèë áóíò, è èçãíàë âàñ èç ãîğîäà." << std::endl;
-			std::cout << "Òåïåğü âû âûíóæäåíû âëà÷èòü æàëêîå ñóùåñòâîâàíèå â èçãíàíèè." << std::endl;
+			std::cout << "Ğ˜Ğ·-Ğ·Ğ° Ğ²Ğ°ÑˆĞµĞ¹ Ğ½ĞµĞºĞ¾Ğ¼Ğ¿ĞµÑ‚ĞµĞ½Ñ‚Ğ½Ğ¾ÑÑ‚Ğ¸ Ğ² ÑƒĞ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğ¸, Ğ½Ğ°Ñ€Ğ¾Ğ´ ÑƒÑÑ‚Ñ€Ğ¾Ğ¸Ğ» Ğ±ÑƒĞ½Ñ‚, Ğ¸ Ğ¸Ğ·Ğ³Ğ½Ğ°Ğ» Ğ²Ğ°Ñ Ğ¸Ğ· Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ°." << std::endl;
+			std::cout << "Ğ¢ĞµĞ¿ĞµÑ€ÑŒ Ğ²Ñ‹ Ğ²Ñ‹Ğ½ÑƒĞ¶Ğ´ĞµĞ½Ñ‹ Ğ²Ğ»Ğ°Ñ‡Ğ¸Ñ‚ÑŒ Ğ¶Ğ°Ğ»ĞºĞ¾Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ² Ğ¸Ğ·Ğ³Ğ½Ğ°Ğ½Ğ¸Ğ¸." << std::endl;
 		}
-		else if (parameters.P > 10 || parameters.L < 9) // óáğàòü ìàãè÷åñêèå êîíñòàíòû
+		else if (parameters.P > 10 || parameters.L < 9) // ÑƒĞ±Ñ€Ğ°Ñ‚ÑŒ Ğ¼Ğ°Ğ³Ğ¸Ñ‡ĞµÑĞºĞ¸Ğµ ĞºĞ¾Ğ½ÑÑ‚Ğ°Ğ½Ñ‚Ñ‹
 		{
-			std::cout << "Âû ïğàâèëè æåëåçíîé ğóêîé, ïîäîáíî Íåğîíó è Èâàíó Ãğîçíîìó. " << std::endl;
-			std::cout << "Íàğîä âçäîõíóë ñ îáëåã÷åíèåì, è íèêòî áîëüøå íå æåëàåò âèäåòü âàñ ïğàâèòåëåì." << std::endl;
+			std::cout << "Ğ’Ñ‹ Ğ¿Ñ€Ğ°Ğ²Ğ¸Ğ»Ğ¸ Ğ¶ĞµĞ»ĞµĞ·Ğ½Ğ¾Ğ¹ Ñ€ÑƒĞºĞ¾Ğ¹, Ğ¿Ğ¾Ğ´Ğ¾Ğ±Ğ½Ğ¾ ĞĞµÑ€Ğ¾Ğ½Ñƒ Ğ¸ Ğ˜Ğ²Ğ°Ğ½Ñƒ Ğ“Ñ€Ğ¾Ğ·Ğ½Ğ¾Ğ¼Ñƒ. " << std::endl;
+			std::cout << "ĞĞ°Ñ€Ğ¾Ğ´ Ğ²Ğ·Ğ´Ğ¾Ñ…Ğ½ÑƒĞ» Ñ Ğ¾Ğ±Ğ»ĞµĞ³Ñ‡ĞµĞ½Ğ¸ĞµĞ¼, Ğ¸ Ğ½Ğ¸ĞºÑ‚Ğ¾ Ğ±Ğ¾Ğ»ÑŒÑˆĞµ Ğ½Ğµ Ğ¶ĞµĞ»Ğ°ĞµÑ‚ Ğ²Ğ¸Ğ´ĞµÑ‚ÑŒ Ğ²Ğ°Ñ Ğ¿Ñ€Ğ°Ğ²Ğ¸Ñ‚ĞµĞ»ĞµĞ¼." << std::endl;
 		}
-		else if (parameters.P > 3 || parameters.L < 10) // óáğàòü ìàãè÷åñêèå êîíñòàíòû
+		else if (parameters.P > 3 || parameters.L < 10) // ÑƒĞ±Ñ€Ğ°Ñ‚ÑŒ Ğ¼Ğ°Ğ³Ğ¸Ñ‡ĞµÑĞºĞ¸Ğµ ĞºĞ¾Ğ½ÑÑ‚Ğ°Ğ½Ñ‚Ñ‹
 		{
-			std::cout << "Âû ñïğàâèëèñü âïîëíå íåïëîõî, ó âàñ, êîíå÷íî, åñòü íåäîáğîæåëàòåëè, " << std::endl;
-			std::cout << "íî ìíîãèå õîòåëè áû óâèäåòü âàñ âî ãëàâå ãîğîäà ñíîâà." << std::endl;
+			std::cout << "Ğ’Ñ‹ ÑĞ¿Ñ€Ğ°Ğ²Ğ¸Ğ»Ğ¸ÑÑŒ Ğ²Ğ¿Ğ¾Ğ»Ğ½Ğµ Ğ½ĞµĞ¿Ğ»Ğ¾Ñ…Ğ¾, Ñƒ Ğ²Ğ°Ñ, ĞºĞ¾Ğ½ĞµÑ‡Ğ½Ğ¾, ĞµÑÑ‚ÑŒ Ğ½ĞµĞ´Ğ¾Ğ±Ñ€Ğ¾Ğ¶ĞµĞ»Ğ°Ñ‚ĞµĞ»Ğ¸, " << std::endl;
+			std::cout << "Ğ½Ğ¾ Ğ¼Ğ½Ğ¾Ğ³Ğ¸Ğµ Ñ…Ğ¾Ñ‚ĞµĞ»Ğ¸ Ğ±Ñ‹ ÑƒĞ²Ğ¸Ğ´ĞµÑ‚ÑŒ Ğ²Ğ°Ñ Ğ²Ğ¾ Ğ³Ğ»Ğ°Ğ²Ğµ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ° ÑĞ½Ğ¾Ğ²Ğ°." << std::endl;
 		}
 		else
 		{
-			std::cout << "Ôàíòàñòèêà! Êàğë Âåëèêèé, Äèçğàıëè è Äæåôôåğñîí âìåñòå íå ñïğàâèëèñü áû ëó÷øå." << std::endl;
+			std::cout << "Ğ¤Ğ°Ğ½Ñ‚Ğ°ÑÑ‚Ğ¸ĞºĞ°! ĞšĞ°Ñ€Ğ» Ğ’ĞµĞ»Ğ¸ĞºĞ¸Ğ¹, Ğ”Ğ¸Ğ·Ñ€Ğ°ÑĞ»Ğ¸ Ğ¸ Ğ”Ğ¶ĞµÑ„Ñ„ĞµÑ€ÑĞ¾Ğ½ Ğ²Ğ¼ĞµÑÑ‚Ğµ Ğ½Ğµ ÑĞ¿Ñ€Ğ°Ğ²Ğ¸Ğ»Ğ¸ÑÑŒ Ğ±Ñ‹ Ğ»ÑƒÑ‡ÑˆĞµ." << std::endl;
 		}
 	}
 
@@ -102,32 +102,32 @@ void GameManager::print_statistics()
 {
 	
 
-	std::cout << "Ìîé ïîâåëèòåëü, ñîèçâîëü ïîâåäàòü òåáå" << std::endl;
-	std::cout << "\tÂ ãîäó " << current_turn << " òâîåãî âûñî÷àéøåãî ïğàâëåíèÿ" << std::endl;
+	std::cout << "ĞœĞ¾Ğ¹ Ğ¿Ğ¾Ğ²ĞµĞ»Ğ¸Ñ‚ĞµĞ»ÑŒ, ÑĞ¾Ğ¸Ğ·Ğ²Ğ¾Ğ»ÑŒ Ğ¿Ğ¾Ğ²ĞµĞ´Ğ°Ñ‚ÑŒ Ñ‚ĞµĞ±Ğµ" << std::endl;
+	std::cout << "\tĞ’ Ğ³Ğ¾Ğ´Ñƒ " << current_turn << " Ñ‚Ğ²Ğ¾ĞµĞ³Ğ¾ Ğ²Ñ‹ÑĞ¾Ñ‡Ğ°Ğ¹ÑˆĞµĞ³Ğ¾ Ğ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ñ" << std::endl;
 
 	if (current_turn == 1)
 	{
-		std::cout << "\tÍàñåëåíèå ãîğîäà ñîñòàâëÿåò " << parameters.city_population << " ÷åëîâåê;" << std::endl;
-		std::cout << "\tÃîğîä ñåé÷àñ çàíèìàåò " << parameters.city_area << " àêğîâ;" << std::endl;
-		std::cout << "\tÂ àìáàğàõ íàõîäèòñÿ " << parameters.wheat_amount << " áóøåëåé ïøåíèöû;" << std::endl;
-		std::cout << "\t1 àêğ çåìëè ñòîèò ñåé÷àñ " << parameters.cost_of_acre << " áóøåëü." << std::endl;
+		std::cout << "\tĞĞ°ÑĞµĞ»ĞµĞ½Ğ¸Ğµ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ° ÑĞ¾ÑÑ‚Ğ°Ğ²Ğ»ÑĞµÑ‚ " << parameters.city_population << " Ñ‡ĞµĞ»Ğ¾Ğ²ĞµĞº;" << std::endl;
+		std::cout << "\tĞ“Ğ¾Ñ€Ğ¾Ğ´ ÑĞµĞ¹Ñ‡Ğ°Ñ Ğ·Ğ°Ğ½Ğ¸Ğ¼Ğ°ĞµÑ‚ " << parameters.city_area << " Ğ°ĞºÑ€Ğ¾Ğ²;" << std::endl;
+		std::cout << "\tĞ’ Ğ°Ğ¼Ğ±Ğ°Ñ€Ğ°Ñ… Ğ½Ğ°Ñ…Ğ¾Ğ´Ğ¸Ñ‚ÑÑ " << parameters.wheat_amount << " Ğ±ÑƒÑˆĞµĞ»ĞµĞ¹ Ğ¿ÑˆĞµĞ½Ğ¸Ñ†Ñ‹;" << std::endl;
+		std::cout << "\t1 Ğ°ĞºÑ€ Ğ·ĞµĞ¼Ğ»Ğ¸ ÑÑ‚Ğ¾Ğ¸Ñ‚ ÑĞµĞ¹Ñ‡Ğ°Ñ " << parameters.cost_of_acre << " Ğ±ÑƒÑˆĞµĞ»ÑŒ." << std::endl;
 	}
 	else
 	{
-		std::cout << "\t" << parameters.deaths_from_hunger << "÷åëîâåê óìåğëè ñ ãîëîäó, è " << parameters.citizens_arrived << " ÷åëîâåê ïğèáûëî â íàø ãîğîä; " << std::endl;
+		std::cout << "\t" << parameters.deaths_from_hunger << "Ñ‡ĞµĞ»Ğ¾Ğ²ĞµĞº ÑƒĞ¼ĞµÑ€Ğ»Ğ¸ Ñ Ğ³Ğ¾Ğ»Ğ¾Ğ´Ñƒ, Ğ¸ " << parameters.citizens_arrived << " Ñ‡ĞµĞ»Ğ¾Ğ²ĞµĞº Ğ¿Ñ€Ğ¸Ğ±Ñ‹Ğ»Ğ¾ Ğ² Ğ½Ğ°Ñˆ Ğ³Ğ¾Ñ€Ğ¾Ğ´; " << std::endl;
 		
 		if (parameters.was_plague)
 		{
-			std::cout << "\t×óìà óíè÷òîæèëà ïîëîâèíó íàñåëåíèÿ;" << std::endl;
+			std::cout << "\tĞ§ÑƒĞ¼Ğ° ÑƒĞ½Ğ¸Ñ‡Ñ‚Ğ¾Ğ¶Ğ¸Ğ»Ğ° Ğ¿Ğ¾Ğ»Ğ¾Ğ²Ğ¸Ğ½Ñƒ Ğ½Ğ°ÑĞµĞ»ĞµĞ½Ğ¸Ñ;" << std::endl;
 		}
 		
-		std::cout << "\tÍàñåëåíèå ãîğîäà ñîñòàâëÿåò " << parameters.city_population << " ÷åëîâåê;" << std::endl;
-		std::cout << "\tÌû ñîáğàëè " << parameters.wheat_gathered << " áóøåëåé ïøåíèöû, ïî " 
-			<< parameters.wheat_per_acre << " áóøåëÿ ñ àêğà;" << std::endl;
-		std::cout << "\tÊğûñû èñòğåáèëè " << parameters.wheat_eaten_by_rats << " áóøåëåé ïøåíèöû, îñòàâèâ "
-			<< parameters.wheat_amount << " áóøåëåé â àìáàğàõ;" << std::endl;
-		std::cout << "\tÃîğîä ñåé÷àñ çàíèìàåò " << parameters.city_area << " àêğîâ;" << std::endl;
-		std::cout << "\t1 àêğ çåìëè ñòîèò ñåé÷àñ " << parameters.cost_of_acre << " áóøåëü." << std::endl;
+		std::cout << "\tĞĞ°ÑĞµĞ»ĞµĞ½Ğ¸Ğµ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ° ÑĞ¾ÑÑ‚Ğ°Ğ²Ğ»ÑĞµÑ‚ " << parameters.city_population << " Ñ‡ĞµĞ»Ğ¾Ğ²ĞµĞº;" << std::endl;
+		std::cout << "\tĞœÑ‹ ÑĞ¾Ğ±Ñ€Ğ°Ğ»Ğ¸ " << parameters.wheat_gathered << " Ğ±ÑƒÑˆĞµĞ»ĞµĞ¹ Ğ¿ÑˆĞµĞ½Ğ¸Ñ†Ñ‹, Ğ¿Ğ¾ " 
+			<< parameters.wheat_per_acre << " Ğ±ÑƒÑˆĞµĞ»Ñ Ñ Ğ°ĞºÑ€Ğ°;" << std::endl;
+		std::cout << "\tĞšÑ€Ñ‹ÑÑ‹ Ğ¸ÑÑ‚Ñ€ĞµĞ±Ğ¸Ğ»Ğ¸ " << parameters.wheat_eaten_by_rats << " Ğ±ÑƒÑˆĞµĞ»ĞµĞ¹ Ğ¿ÑˆĞµĞ½Ğ¸Ñ†Ñ‹, Ğ¾ÑÑ‚Ğ°Ğ²Ğ¸Ğ² "
+			<< parameters.wheat_amount << " Ğ±ÑƒÑˆĞµĞ»ĞµĞ¹ Ğ² Ğ°Ğ¼Ğ±Ğ°Ñ€Ğ°Ñ…;" << std::endl;
+		std::cout << "\tĞ“Ğ¾Ñ€Ğ¾Ğ´ ÑĞµĞ¹Ñ‡Ğ°Ñ Ğ·Ğ°Ğ½Ğ¸Ğ¼Ğ°ĞµÑ‚ " << parameters.city_area << " Ğ°ĞºÑ€Ğ¾Ğ²;" << std::endl;
+		std::cout << "\t1 Ğ°ĞºÑ€ Ğ·ĞµĞ¼Ğ»Ğ¸ ÑÑ‚Ğ¾Ğ¸Ñ‚ ÑĞµĞ¹Ñ‡Ğ°Ñ " << parameters.cost_of_acre << " Ğ±ÑƒÑˆĞµĞ»ÑŒ." << std::endl;
 	}
 }
 
@@ -137,13 +137,13 @@ void GameManager::get_player_input()
 
 	while(!parameters.is_input_valid)
 	{
-		std::cout << "×òî ïîæåëàåøü, ïîâåëèòåëü?";
-		std::cout << "\nÑêîëüêî àêğîâ çåìëè ïîâåëåâàåøü êóïèòü?";
+		std::cout << "Ğ§Ñ‚Ğ¾ Ğ¿Ğ¾Ğ¶ĞµĞ»Ğ°ĞµÑˆÑŒ, Ğ¿Ğ¾Ğ²ĞµĞ»Ğ¸Ñ‚ĞµĞ»ÑŒ?";
+		std::cout << "\nĞ¡ĞºĞ¾Ğ»ÑŒĞºĞ¾ Ğ°ĞºÑ€Ğ¾Ğ² Ğ·ĞµĞ¼Ğ»Ğ¸ Ğ¿Ğ¾Ğ²ĞµĞ»ĞµĞ²Ğ°ĞµÑˆÑŒ ĞºÑƒĞ¿Ğ¸Ñ‚ÑŒ?";
 		std::cin >> parameters.acres_to_buy;
 
 		if (!(parameters.acres_to_buy > 0))
 		{
-			std::cout << "\nÑêîëüêî àêğîâ çåìëè ïîâåëåâàåøü ïğîäàòü?";
+			std::cout << "\nĞ¡ĞºĞ¾Ğ»ÑŒĞºĞ¾ Ğ°ĞºÑ€Ğ¾Ğ² Ğ·ĞµĞ¼Ğ»Ğ¸ Ğ¿Ğ¾Ğ²ĞµĞ»ĞµĞ²Ğ°ĞµÑˆÑŒ Ğ¿Ñ€Ğ¾Ğ´Ğ°Ñ‚ÑŒ?";
 			std::cin >> parameters.acres_to_sell;
 		}
 		else
@@ -151,9 +151,9 @@ void GameManager::get_player_input()
 			parameters.acres_to_sell = 0;
 		}
 
-		std::cout << "\nÑêîëüêî áóøåëåé ïøåíèöû ïîâåëåâàåøü ñúåñòü?";
+		std::cout << "\nĞ¡ĞºĞ¾Ğ»ÑŒĞºĞ¾ Ğ±ÑƒÑˆĞµĞ»ĞµĞ¹ Ğ¿ÑˆĞµĞ½Ğ¸Ñ†Ñ‹ Ğ¿Ğ¾Ğ²ĞµĞ»ĞµĞ²Ğ°ĞµÑˆÑŒ ÑÑŠĞµÑÑ‚ÑŒ?";
 		std::cin >> parameters.wheat_to_eat;
-		std::cout << "\nÑêîëüêî àêğîâ çåìëè ïîâåëåâàåøü çàñåÿòü?";
+		std::cout << "\nĞ¡ĞºĞ¾Ğ»ÑŒĞºĞ¾ Ğ°ĞºÑ€Ğ¾Ğ² Ğ·ĞµĞ¼Ğ»Ğ¸ Ğ¿Ğ¾Ğ²ĞµĞ»ĞµĞ²Ğ°ĞµÑˆÑŒ Ğ·Ğ°ÑĞµÑÑ‚ÑŒ?";
 		std::cin >> parameters.acres_to_cultivate;
 		std::cout << std::endl;
 
@@ -208,8 +208,8 @@ void GameManager::check_player_input()
 
 	if (!is_input_correct)
 	{
-		std::cout << "\nÎ, ïîâåëèòåëü, ïîùàäè íàñ! Ó íàñ òîëüêî " << parameters.city_population << " ÷åëîâåê, "
-			<< parameters.wheat_amount << "áóøåëåé ïøåíèöû è " << parameters.city_area << " àêğîâ çåìëè!" << std::endl;
+		std::cout << "\nĞ, Ğ¿Ğ¾Ğ²ĞµĞ»Ğ¸Ñ‚ĞµĞ»ÑŒ, Ğ¿Ğ¾Ñ‰Ğ°Ğ´Ğ¸ Ğ½Ğ°Ñ! Ğ£ Ğ½Ğ°Ñ Ñ‚Ğ¾Ğ»ÑŒĞºĞ¾ " << parameters.city_population << " Ñ‡ĞµĞ»Ğ¾Ğ²ĞµĞº, "
+			<< parameters.wheat_amount << "Ğ±ÑƒÑˆĞµĞ»ĞµĞ¹ Ğ¿ÑˆĞµĞ½Ğ¸Ñ†Ñ‹ Ğ¸ " << parameters.city_area << " Ğ°ĞºÑ€Ğ¾Ğ² Ğ·ĞµĞ¼Ğ»Ğ¸!" << std::endl;
 	}
 
 	parameters.is_input_valid = is_input_correct;
@@ -253,7 +253,7 @@ void GameManager::want_to_save()
 
 	while (!got_answer)
 	{
-		std::cout << "Ñîõğàíèòü è çàêîí÷èòü èãğó? Y/N" << std::endl;
+		std::cout << "Ğ¡Ğ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒ Ğ¸ Ğ·Ğ°ĞºĞ¾Ğ½Ñ‡Ğ¸Ñ‚ÑŒ Ğ¸Ğ³Ñ€Ñƒ? Y/N" << std::endl;
 		std::cin >> answer;
 
 		if (answer == 'Y' || answer == 'y')
@@ -265,12 +265,12 @@ void GameManager::want_to_save()
 		}
 		else if (answer == 'N' || answer == 'n')
 		{
-			std::cout << "Îòëè÷íî, ïğîäîëæàåì..." << std::endl;
+			std::cout << "ĞÑ‚Ğ»Ğ¸Ñ‡Ğ½Ğ¾, Ğ¿Ñ€Ğ¾Ğ´Ğ¾Ğ»Ğ¶Ğ°ĞµĞ¼..." << std::endl;
 			got_answer = true;
 		}
 		else
 		{
-			std::cout << "Ïğîñòèòå, ÿ íå ïîíèìàş. Ïîæàëóéñòà, ïîâòîğèòå ââîä." << std::endl;
+			std::cout << "ĞŸÑ€Ğ¾ÑÑ‚Ğ¸Ñ‚Ğµ, Ñ Ğ½Ğµ Ğ¿Ğ¾Ğ½Ğ¸Ğ¼Ğ°Ñ. ĞŸĞ¾Ğ¶Ğ°Ğ»ÑƒĞ¹ÑÑ‚Ğ°, Ğ¿Ğ¾Ğ²Ñ‚Ğ¾Ñ€Ğ¸Ñ‚Ğµ Ğ²Ğ²Ğ¾Ğ´." << std::endl;
 		}
 	}
 }
@@ -308,7 +308,7 @@ void GameManager::save_to_file()
 	fout.open(save_file_path, std::ios_base::trunc);
 	if (!fout.is_open())
 	{
-		std::cout << "Îøèáêà ïğè îòêğûòèè ôàéëà!" << std::endl;
+		std::cout << "ĞÑˆĞ¸Ğ±ĞºĞ° Ğ¿Ñ€Ğ¸ Ğ¾Ñ‚ĞºÑ€Ñ‹Ñ‚Ğ¸Ğ¸ Ñ„Ğ°Ğ¹Ğ»Ğ°!" << std::endl;
 	}
 	else
 	{
@@ -369,7 +369,7 @@ void GameManager::delete_save()
 	fout.open(save_file_path, std::ios_base::trunc);
 	if (!fout.is_open())
 	{
-		std::cout << "Îøèáêà ïğè îòêğûòèè ôàéëà!" << std::endl;
+		std::cout << "ĞÑˆĞ¸Ğ±ĞºĞ° Ğ¿Ñ€Ğ¸ Ğ¾Ñ‚ĞºÑ€Ñ‹Ñ‚Ğ¸Ğ¸ Ñ„Ğ°Ğ¹Ğ»Ğ°!" << std::endl;
 	}
 	else
 	{

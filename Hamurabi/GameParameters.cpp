@@ -1,4 +1,4 @@
-#include "GameParameters.h"
+﻿#include "GameParameters.h"
 
 void GameParameters::init() 
 {
