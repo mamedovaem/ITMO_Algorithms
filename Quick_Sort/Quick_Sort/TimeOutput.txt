@@ -1,0 +1,98 @@
+qsort, size: 2; time: 7
+insert sort, size: 2; time: 3
+qsort, size: 3; time: 11
+insert sort, size: 3; time: 3
+qsort, size: 4; time: 13
+insert sort, size: 4; time: 5
+qsort, size: 5; time: 17
+insert sort, size: 5; time: 7
+qsort, size: 6; time: 20
+insert sort, size: 6; time: 9
+qsort, size: 7; time: 26
+insert sort, size: 7; time: 13
+qsort, size: 8; time: 33
+insert sort, size: 8; time: 17
+qsort, size: 9; time: 51
+insert sort, size: 9; time: 32
+qsort, size: 10; time: 58
+insert sort, size: 10; time: 34
+qsort, size: 11; time: 71
+insert sort, size: 11; time: 41
+qsort, size: 12; time: 77
+insert sort, size: 12; time: 44
+qsort, size: 13; time: 73
+insert sort, size: 13; time: 41
+qsort, size: 14; time: 69
+insert sort, size: 14; time: 79
+qsort, size: 15; time: 140
+insert sort, size: 15; time: 84
+qsort, size: 16; time: 99
+insert sort, size: 16; time: 78
+qsort, size: 17; time: 98
+insert sort, size: 17; time: 99
+qsort, size: 18; time: 113
+insert sort, size: 18; time: 111
+qsort, size: 19; time: 140
+insert sort, size: 19; time: 132
+qsort, size: 20; time: 124
+insert sort, size: 20; time: 129
+qsort, size: 21; time: 145
+insert sort, size: 21; time: 144
+qsort, size: 22; time: 126
+insert sort, size: 22; time: 182
+qsort, size: 23; time: 159
+insert sort, size: 23; time: 123
+qsort, size: 24; time: 110
+insert sort, size: 24; time: 131
+qsort, size: 25; time: 112
+insert sort, size: 25; time: 137
+qsort, size: 26; time: 114
+insert sort, size: 26; time: 147
+qsort, size: 27; time: 134
+insert sort, size: 27; time: 161
+qsort, size: 28; time: 127
+insert sort, size: 28; time: 168
+qsort, size: 29; time: 132
+insert sort, size: 29; time: 203
+qsort, size: 30; time: 140
+insert sort, size: 30; time: 194
+qsort, size: 31; time: 147
+insert sort, size: 31; time: 205
+qsort, size: 32; time: 154
+insert sort, size: 32; time: 233
+qsort, size: 33; time: 157
+insert sort, size: 33; time: 227
+qsort, size: 34; time: 158
+insert sort, size: 34; time: 243
+qsort, size: 35; time: 165
+insert sort, size: 35; time: 257
+qsort, size: 36; time: 169
+insert sort, size: 36; time: 272
+qsort, size: 37; time: 170
+insert sort, size: 37; time: 286
+qsort, size: 38; time: 178
+insert sort, size: 38; time: 298
+qsort, size: 39; time: 193
+insert sort, size: 39; time: 314
+qsort, size: 40; time: 184
+insert sort, size: 40; time: 331
+qsort, size: 41; time: 198
+insert sort, size: 41; time: 356
+qsort, size: 42; time: 197
+insert sort, size: 42; time: 374
+qsort, size: 43; time: 206
+insert sort, size: 43; time: 384
+qsort, size: 44; time: 209
+insert sort, size: 44; time: 398
+qsort, size: 45; time: 217
+insert sort, size: 45; time: 417
+qsort, size: 46; time: 216
+insert sort, size: 46; time: 436
+qsort, size: 47; time: 228
+insert sort, size: 47; time: 453
+qsort, size: 48; time: 228
+insert sort, size: 48; time: 486
+qsort, size: 49; time: 233
+insert sort, size: 49; time: 499
+qsort, size: 50; time: 238
+insert sort, size: 50; time: 510
