@@ -4,7 +4,6 @@ void FSAAllocator::Init()
 {
 	if (!isInitialized)
 	{
-		//SetPrivilege();
 		ReservePages();
 		SetFSASize();
 		for (int i = 0; i < 6;++i)
@@ -22,8 +21,8 @@ void FSAAllocator::Init()
 void FSAAllocator::Destroy()
 {
 	isInitialized = false;
-	//free memory and return pages to OS
 
+	//free memory and return pages to OS
 	isSuccess = VirtualFree(
 		lpvBase,       // Base address of block
 		0,             // Bytes of committed pages
@@ -36,11 +35,12 @@ void* FSAAllocator::Alloc(size_t size)
 {
 	//alloc memory
 	char bytes[8];
-	//ќпределить в какой тип аллокатора записац
-	//записать в блок по адресу head_ptr
-	//исправиц значение head_ptr head_ptr+FSA_type
-	// return head_ptr - FSA_type
-	// если размер не позвол€ет - выдел€ем страницу, размечаем, возвращаем блок
+
+	//Look in which allocator we should write
+	//write in the block at headPtr
+	//change headPtr with headPtr+FSAType
+	//if the free space is not enough, committing a page, setting layout, returning block's address
+	
 	int currentFSA = ChooseFSA(size);
 	//if ((long int*)(*((long int*)head_ptr[currentFSA])) == nullptr)
 	//if ((ReadBytes(((char*)(headPtr[currentFSA])), (char*)bytes, sizeof(char*))) == nullptr)
@@ -63,9 +63,10 @@ void* FSAAllocator::Alloc(size_t size)
 void FSAAllocator::Free(void* p)
 {
 	//free memory
-	//определить на какой странице и к какому аллокатору относитс€ блок
-	//записать в блок значение хед птр
-	//записать в хед птр адрес блока
+	// 
+	//identify on which page and of which allocator the block is found
+	//write a value of head_Ptr in the block
+	//write the block's address in headPtr
 
 	int currentFSA = ChooseFSA(p);
 	//*(char**)p = (char*)head_ptr[currentFSA];
@@ -77,8 +78,6 @@ void FSAAllocator::WriteBytes(char* target, char* bytes, size_t size)
 {
 	for (int i = 0; i < size; ++i)
 	{
-		//*(*((char**)(target) + i)) = *(*((char**)(bytes) + i));
-
 		target[i] = (char)(bytes + i);
 	}
 }
@@ -86,7 +85,6 @@ char* FSAAllocator::ReadBytes(char* bytes, char* target, size_t size)
 {
 	for (int i = 0; i < size; ++i)
 	{
-		//(*((char**)(target)[i])) = (*((char**)(bytes)[i]));
 		target[i] = (char)(bytes + i);
 	}
 
@@ -141,19 +139,12 @@ VOID FSAAllocator::ReservePages(VOID)
 {
 	//BOOL bSuccess;                // Flag
 	DWORD i;                      // Generic counter
-	//page_minimum = GetLargePageMinimum();
-	/*if (!page_minimum)
-	{
-		_tprintf(TEXT("Large pages are not supported.\n"));
 
-		ExitProcess(GetLastError());
-	}*/
 	GetSystemInfo(&sSysInfo);     // Initialize the structure.
 
 	_tprintf(TEXT("This computer has page size %d.\n"), sSysInfo.dwPageSize);
 
 	dwPageSize = sSysInfo.dwPageSize;
-	//dwPageSize = page_minimum;
 
 	// Reserve pages in the virtual address space of the process.
 
@@ -162,6 +153,7 @@ VOID FSAAllocator::ReservePages(VOID)
 		PAGELIMIT * dwPageSize, // Size of allocation
 		MEM_RESERVE,          // Allocate reserved pages
 		PAGE_NOACCESS);       // Protection = no access
+
 	if (lpvBase == NULL)
 	{
 		_tprintf(TEXT("VirtualAlloc failed.\n"));
@@ -181,8 +173,6 @@ VOID FSAAllocator::ReservePages(VOID)
 		__try
 		{
 			//Write to memory.
-
-			//lpPtr[i] = '0';
 		}
 
 		// If there's a page fault, commit another page and try again.
@@ -196,9 +186,6 @@ VOID FSAAllocator::ReservePages(VOID)
 			ExitProcess(GetLastError());
 
 		}
-
-
-
 	}
 }
 
@@ -242,26 +229,20 @@ void FSAAllocator::SetLayout(int currentFSA)
 	}
 	else
 	{
-		//head_ptr[type] = (void*)(*((char*)head_ptr[type]));
 		WriteBytes((char*)&headPtr[currentFSA], (char*)ptr, sizeof(char*));
-
 	}
 
-	for (int i = 0; (ptr + FSAType[currentFSA] < (char*)headPtr[currentFSA] + FSASize[currentFSA] - 1)&&(i < FSASize[currentFSA]/FSAType[currentFSA] - 1); i++, ptr += FSAType[currentFSA])
+	for (int i = 0; (ptr + FSAType[currentFSA] < (char*)headPtr[currentFSA] + FSASize[currentFSA] - 1) && (i < FSASize[currentFSA] / FSAType[currentFSA] - 1); i++, ptr += FSAType[currentFSA])
 	{
-		if (/*ptr + 2 * FSAType[type] < (char*)headPtr[type] + FSASize[type] - 1*/ i < FSASize[currentFSA] / FSAType[currentFSA] - 2)
+		if (i < FSASize[currentFSA] / FSAType[currentFSA] - 2)
 		{
-			//*ptr =(ptr + FSA_type[i]);
 			WriteBytes(ptr, ptr + FSAType[currentFSA], sizeof(char*));
 		}
 		else if (/*ptr + FSAType[type] < (char*)headPtr[type] + FSASize[type]&& */  i < FSASize[currentFSA] / FSAType[currentFSA] - 1)
 		{
-			//*ptr = (char)nullptr;
 			WriteBytes((char*)ptr, nullptr, sizeof(nullptr));
 		}
 	}
-	/*ptr = (char*)head_ptr[type] + FSA_size[type];*/
-
 }
 
 int FSAAllocator::ChooseFSA(size_t size)
