@@ -20,13 +20,15 @@ public:
 	LPTSTR lpPtr;                 // Generic character pointer
 	SYSTEM_INFO sSysInfo;         // Useful information about the system
 
-	const int pointeSize = sizeof(char*);
+	const int pointerSize = sizeof(char*);
 
 
 	int FSAType[6] = { 512, 256, 128, 64, 32, 16 };
 	int FSASize[6];
 	void* headPtr[6]{ nullptr };
 	int pagesToFSA[PAGELIMIT]{ 0 };
+
+	char bytes[8];
 
 	bool isInitialized = false;
 

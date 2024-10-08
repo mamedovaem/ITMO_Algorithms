@@ -34,7 +34,6 @@ void FSAAllocator::Destroy()
 void* FSAAllocator::Alloc(size_t size)
 {
 	//alloc memory
-	char bytes[8];
 
 	//Look in which allocator we should write
 	//write in the block at headPtr
@@ -44,7 +43,7 @@ void* FSAAllocator::Alloc(size_t size)
 	int currentFSA = ChooseFSA(size);
 	//if ((long int*)(*((long int*)head_ptr[currentFSA])) == nullptr)
 	//if ((ReadBytes(((char*)(headPtr[currentFSA])), (char*)bytes, sizeof(char*))) == nullptr)
-	if ((void*)*((char*)headPtr[currentFSA]) == nullptr)
+	if ((char*)headPtr[currentFSA] == nullptr)
 	{
 		void* ptr = headPtr[currentFSA];
 		headPtr[currentFSA] = CommitPage();
@@ -54,7 +53,7 @@ void* FSAAllocator::Alloc(size_t size)
 	else
 	{
 		void* ptr = headPtr[currentFSA];
-		headPtr[currentFSA] = (void*)*((char*)headPtr[currentFSA]);
+		headPtr[currentFSA] = (void*)ReadBytes((char*)(headPtr[currentFSA]), bytes, sizeof(char*));
 		WriteBytes((char*)&headPtr[currentFSA], (char*)(&headPtr[currentFSA]) + FSASize[currentFSA], sizeof(char*));
 		return ptr;
 	}
@@ -69,24 +68,45 @@ void FSAAllocator::Free(void* p)
 	//write the block's address in headPtr
 
 	int currentFSA = ChooseFSA(p);
-	//*(char**)p = (char*)head_ptr[currentFSA];
 	WriteBytes((char*)p, (char*)(headPtr[currentFSA]), sizeof(char*));
 	headPtr[currentFSA] = p;
 }
 
+
 void FSAAllocator::WriteBytes(char* target, char* bytes, size_t size)
 {
+	if (target == nullptr)
+	{
+		std::cout << "Target is nullptr!\n" << std::endl;
+		return;
+	}
 	for (int i = 0; i < size; ++i)
 	{
-		target[i] = (char)(bytes + i);
+		target[i] = (char)((long int)(bytes + i) >> i);
 	}
+	std::cout << "INTO WRITEBYTES: " << std::endl;
+	/*for (int i = 0; i < size; ++i)
+	{
+		std::cout << (void*)target[i] << " - target; " <<  (void*)&target[i] << " - target address; " << (void*)((int)(bytes + i) >> i)<< " - source";
+	}*/
 }
 char* FSAAllocator::ReadBytes(char* bytes, char* target, size_t size)
 {
+	if (target == nullptr)
+	{
+		std::cout << "Target is nullptr!\n" << std::endl;
+	}
 	for (int i = 0; i < size; ++i)
 	{
-		target[i] = (char)(bytes + i);
+
+		target[i] = (char)((long int)((bytes + i)) >> (size - i - 1));
+		//target[i] = (char)((int)(bytes + i) >> i);
 	}
+	std::cout << "INTO READBYTES: " << std::endl;
+	/*for (int i = 0; i < size; ++i)
+	{
+		std::cout << (void*)target[i] << " - target; " << (void*)((int)(bytes + i) >> i) << " - source";
+	}*/
 
 	return target;
 }
@@ -219,29 +239,35 @@ LPVOID FSAAllocator::CommitPage()
 
 void FSAAllocator::SetLayout(int currentFSA)
 {
-	char* target = (char*)headPtr[currentFSA];
-	char* ptr = static_cast<char*>(lpvBase) + (int)(dwPages - 1) * dwPageSize;
-	headPtr[currentFSA] = (void*)(static_cast<char*>(lpvBase) + (int)(dwPages - 1) * dwPageSize);
+	char* pageBase = static_cast<char*>(lpvBase) + (int)(dwPages - 1) * dwPageSize;
+	char* ptr = pageBase;
+
 	pagesToFSA[dwPages - 1] = currentFSA;
-	if (headPtr[currentFSA] = nullptr)
+
+	if (headPtr[currentFSA] == nullptr)
 	{
-		headPtr[currentFSA] = ptr;
+		//headPtr[currentFSA] = ptr;
 	}
 	else
 	{
-		WriteBytes((char*)&headPtr[currentFSA], (char*)ptr, sizeof(char*));
+	//	headPtr[currentFSA] = (void*)ptr;
+		//WriteBytes((char*)&headPtr[currentFSA], ptr, sizeof(char*));
 	}
 
-	for (int i = 0; (ptr + FSAType[currentFSA] < (char*)headPtr[currentFSA] + FSASize[currentFSA] - 1) && (i < FSASize[currentFSA] / FSAType[currentFSA] - 1); i++, ptr += FSAType[currentFSA])
+	for (int i = 0; (/*ptr + FSAType[currentFSA] < (char*)pageBase[currentFSA] + FSASize[currentFSA] - 1 && */(i < FSASize[currentFSA] / FSAType[currentFSA] - 1)); i++, ptr += FSAType[currentFSA])
 	{
 		if (i < FSASize[currentFSA] / FSAType[currentFSA] - 2)
 		{
 			WriteBytes(ptr, ptr + FSAType[currentFSA], sizeof(char*));
 		}
-		else if (/*ptr + FSAType[type] < (char*)headPtr[type] + FSASize[type]&& */  i < FSASize[currentFSA] / FSAType[currentFSA] - 1)
-		{
-			WriteBytes((char*)ptr, nullptr, sizeof(nullptr));
+		else {
+			if (/*ptr + FSAType[type] < (char*)headPtr[type] + FSASize[type]&& */  i < FSASize[currentFSA] / FSAType[currentFSA] - 1)
+			{
+				WriteBytes(ptr, nullptr, sizeof(nullptr));
+			}
 		}
+
+		//std::cout << (void*) (ptr) << " - address; " << (void*) (*ptr) << " - value " << std::endl;
 	}
 }
 
@@ -274,7 +300,6 @@ int FSAAllocator::ChooseFSA(void* ptr)
 void FSAAllocator::SetFSASize()
 {
 	// from FSA 512 to FSA 16  
-   //6144 + pointer_size,
 	FSASize[0] = (int)dwPageSize;
 	FSASize[1] = (int)dwPageSize;
 	FSASize[2] = (int)dwPageSize;
